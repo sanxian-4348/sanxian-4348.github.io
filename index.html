@@ -1,0 +1,270 @@
+<!-- Single Page Website, SPA 風格 區塊多段落式 響應式RWD-->
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>   
+  <!--
+                | |                  
+   ____    ___  | | _   _   _   ____ 
+  |  _ \  / _ \ | || \ | | | | / _  |
+  | | | || |_| || |_) )| |_| |( ( | |
+  |_| |_| \___/ |____/  \____| \_|| | 
+                              (_____|
+  作者: Sanxian
+  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="description" content="Sanxian 的個人部落格，記錄網頁開發、資訊安全、電子設計等學習心得與筆記。">
+  <meta name="keywords" content="Sanxian, Blog, 資訊安全, 網頁設計, 電子, 競程, 學習筆記">
+  <meta name="author" content="Sanxian">
+  <title>Sanxian Blog</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="shortcut icon" href="images/qq.jpg" type="image/x-icon" />
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  <style>
+    /* 新增圖片對齊圖框的 CSS */
+    .img-box {
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      position: relative;
+    }
+    .img-fit {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    /* 黑塔GIF針對手機排版修正 */
+    .special-img {
+      max-width: 500px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    @media (max-width: 768px) {
+      .special-img {
+        position: static !important;
+        right: auto !important;
+        top: auto !important;
+        transform: none !important;
+        display: block;
+        margin: 1em auto 0 auto;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body class="is-preload landing">
+  <div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header">
+      <h1 id="logo"><a href="index.html">Sanxian</a></h1>
+      <nav id="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="https://hackmd.io/@Sanxianone">Hackmd</a></li>
+          <li>
+            <a href="#">Work</a>
+            <ul>
+              <li><a href="left-sidebar.html">網頁技術</a></li>
+              <li><a href="right-sidebar.html">數位電子</a></li>
+              <li><a href="no-sidebar.html">電腦硬體裝修</a></li>
+              <li><a href="DIY.html">DIY電子焊接</a></li>
+              <li>
+                <a href="#">更多關於我的地方</a>
+                <ul>
+                  <li><a href="#">4*4*4 Arduino UNO 閃動方塊</a></li>
+                  <li><a href="#">網頁開發成就&作品</a></li>
+                  <li><a href="#">分區賽</a></li>
+                  <li><a href="#">程式設計題目</a></li>
+                  <li><a href="#">APCS─程式設計歷程</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="elements.html">about</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Banner -->
+    <section id="banner">
+      <div class="content">
+        <header>
+          <h2>SANXIAN Programming Diary</h2>
+          <p>Welcome to my website⚡<br/>
+            Here is my study record🧾✍️
+          </p>
+        </header>
+        <span class="image fit main img-box">
+          <img src="images/qq.jpg" alt="Sanxian 大頭照" class="img-fit" />
+        </span>
+        <!-- 加入本站已運行天數顯示 -->
+        <p style="margin-top:1em;">本站已運行：<span id="site-runtime"></span></p>
+      </div>
+      <a href="#one" class="goto-next scrolly">Next</a>
+    </section>
+
+    <!-- One -->
+    <section id="one" class="spotlight style1 bottom">
+      <span class="image fit main img-box">
+        <img src="images/san.jpg" alt="Sanxian 專業形象" class="img-fit" />
+      </span>
+      <div class="content">
+        <div class="container">
+          <div class="row">
+            <div class="col-4 col-12-medium">
+              <header>
+                <h2>資訊電子領域的菜雞</h2>
+                <p>網頁設計、競程、資安、電路設計</p>
+              </header>
+            </div>
+            <div class="col-4 col-12-medium">
+              <p>Hello！歡迎來到我的 Blog，這裡會分享我的網頁開發以及資訊安全、競程、電路設計等相關的學習筆記和心得。希望能夠幫助到你們，也歡迎大家一起交流學習！</p>
+              <p>這個 Blog 是我在學習過程中的一個小小紀錄，希望能夠幫助到和我一樣對資訊電子有興趣的朋友</p>
+              <span class="img-box special-img">
+                <img src="images/IMG_1362.gif" alt="資訊電子領域學習 GIF" class="img-fit" />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#two" class="goto-next scrolly">Next</a>
+    </section>
+
+    <!-- Two -->
+    <section id="two" class="spotlight style2 right">
+      <span class="image fit main img-box">
+        <img src="images/web02.png" alt="專案展示" class="img-fit"/>
+      </span>
+      <div class="content">
+        <header>
+          <h2>網頁設計</h2>
+          <p>網頁設計丙級第二題</p>
+        </header>
+        <p>這個網站是我覺得最耗時間、也蠻困難的一個題目想這題拿出來做紀念<br>下面的按紐可以到我的github資料庫中看到這個網站，使用Drwamweaver CS6製作</p>
+        <ul class="actions">
+          <li><a href="https://sanxian-4348.github.io/web02.github.io/web02/index.html" class="button">前往觀看網站</a></li>
+        </ul>
+      </div>
+      <a href="#three" class="goto-next scrolly">Next</a>
+    </section>
+
+    <!-- Three -->
+    <section id="three" class="spotlight style3 left">
+      <span class="image fit main bottom img-box">
+        <img src="images/b.jpg" alt="作品集圖片" class="img-fit"/>
+      </span>
+      <div class="content">
+        <header>
+          <h2>電子晶片實習</h2>
+          <p>數位電子乙級證照</p>
+        </header>
+        <p>第二題，使用kicad畫原理圖小鍵盤控制七段顯示器進行亮燈</p>
+        <ul class="actions">
+          <li><a href="#" class="button">快速回頂端</a></li>
+        </ul>
+      </div>
+      <a href="#four" class="goto-next scrolly">Next</a>
+    </section>
+
+    <!-- Four -->
+    <section id="four" class="wrapper style1 special fade-up">
+      <div class="container">
+        <header class="major">
+          <h2>參與過的活動&比賽&檢定</h2>
+          <p>踏入資訊圈的生活日常</p>
+        </header>
+        <div class="box alt">
+          <div class="row gtr-uniform">
+            <section class="col-4 col-6-medium col-12-xsmall">
+              <span class="icon solid alt major fa-chart-area"></span>
+              <h3>SITCON學生計算機年會</h3>
+              <p>第一次參與2025SITCON學生會眾</p>
+            </section>
+            <section class="col-4 col-6-medium col-12-xsmall">
+              <span class="icon solid alt major fa-comment"></span>
+              <h3>[資深玩家]SCIST寒訓2025</h3>
+              <p>學習到Discord Bot程式製作、網頁前端設計、演算法初探</p>
+            </section>
+            <section class="col-4 col-6-medium col-12-xsmall">
+              <span class="icon solid alt major fa-flask"></span>
+              <h3>2025全國技能分區賽</h3>
+              <p>第一次競賽職類為網頁技術，準備時間可能不夠充裕，待明年取的名次</p>
+            </section>
+            <section class="col-4 col-6-medium col-12-xsmall">
+              <span class="icon solid alt major fa-paper-plane"></span>
+              <h3>JNIC嘉南聯合資訊探索營</h3>
+              <p>資安CTF初探，C++進階學習</p>
+            </section>
+            <section class="col-4 col-6-medium col-12-xsmall">
+              <span class="icon solid alt major fa-file"></span>
+              <h3>APCS-大學先修程式檢定</h3>
+              <p></p>
+            </section>
+            <section class="col-4 col-6-medium col-12-xsmall">
+              <span class="icon solid alt major fa-lock"></span>
+              <h3>AIS3 CLUB</h3>
+              <p>網路爬蟲、製作釣魚網站、網址嫁接、寄送封包</p>
+            </section>
+          </div>
+        </div>
+        <footer class="major">
+          <ul class="actions special">
+            <li><a href="#" class="button">回首頁</a></li>
+          </ul>
+        </footer>
+      </div>
+    </section>
+
+    
+
+    <!-- Footer -->
+    <footer id="footer">
+      <ul class="icons">
+        <li><a href="https://www.facebook.com/profile.php?id=100023157883458" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+        <li><a href="https://www.linkedin.com/in/%E9%91%A0%E6%B2%85-%E8%83%A1-943729337/" class="icon brands alt fa-linkedin-in" role="button"><span class="label">LinkedIn</span></a></li>
+        <li><a href="https://www.instagram.com/11_sanxian/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+        <li><a href="https://github.com/sanxian-4348" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+        <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+      </ul>
+    </footer>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js" defer></script>
+  <script src="assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="assets/js/jquery.dropotron.min.js" defer></script>
+  <script src="assets/js/jquery.scrollex.min.js" defer></script>
+  <script src="assets/js/browser.min.js" defer></script>
+  <script src="assets/js/breakpoints.min.js" defer></script>
+  <script src="assets/js/util.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  
+  <script>
+    
+    var siteStartTime = new Date("2024-07-01T00:00:00+08:00");
+    function updateRuntime() {
+      var now = new Date();
+      var diff = now - siteStartTime;
+      if (diff < 0) diff = 0;
+      var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      var minutes = Math.floor((diff / (1000 * 60)) % 60);
+      var seconds = Math.floor((diff / 1000) % 60);
+      document.getElementById("site-runtime").innerText =
+        days + " 天 " +
+        hours + " 小時 " +
+        minutes + " 分 " +
+        seconds + " 秒";
+    }
+    updateRuntime();
+    setInterval(updateRuntime, 1000);
+  </script>
+</body>
+</html>
