@@ -40,6 +40,40 @@
             overflow-wrap: anywhere;
         }
 
+        .intro-screen {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: grid;
+            place-items: center;
+            background-color: var(--bg-paper);
+            color: var(--ink-black);
+            transition: transform 0.75s cubic-bezier(0.76, 0, 0.24, 1), visibility 0.75s;
+        }
+
+        .intro-screen.is-done {
+            transform: translateY(-100%);
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .intro-brand {
+            display: inline-block;
+            padding-right: 0.16em;
+            font-family: 'Cinzel', 'Noto Serif TC', serif;
+            font-size: 5rem;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: 0.16em;
+            border-right: 2px solid currentColor;
+            animation: intro-cursor 0.8s steps(1) infinite;
+        }
+
+        @keyframes intro-cursor {
+            0%, 45% { border-color: currentColor; }
+            46%, 100% { border-color: transparent; }
+        }
+
         /* 頂部 Header */
         header {
             display: flex;
@@ -856,6 +890,10 @@
             .hero {
                 padding-bottom: 30px;
                 margin-bottom: 30px;
+            }
+
+            .intro-brand {
+                font-size: 3rem;
             }
 
             .hero h1 {
