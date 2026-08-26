@@ -314,6 +314,8 @@
             '我是Sanxian三線': 'I am Sanxian.',
             '01 / 關於我': '01 / ABOUT ME', '02 / 作品集': '02 / PROJECTS', '03 / 有趣的生活': '03 / LIFE', '04 / 程式解題': '04 / PROBLEM SOLVING', '05 / 電子電路設計': '05 / CIRCUIT DESIGN', '06 / 從零開始學習資安': '06 / LEARNING CYBERSECURITY', '07 / 聯絡方式': '07 / CONTACT',
             '目前就讀雲林科技大學智慧機器人學士學位學程(智慧跨域技優專班)\n                    高中畢業於嘉義高工微電腦修護科，專長為': 'Currently studying Intelligent Robotics at National Yunlin University of Science and Technology. Graduated from National Chia-Yi Industrial Vocational High School, specializing in',
+            '就讀': 'Studying at ', '雲林科技大學智慧機器人學士學位學程(智慧跨域技優專班)': 'the Intelligent Robotics Bachelor\'s Program at National Yunlin University of Science and Technology.',
+            '對於軟體開發和硬體整合有濃厚興趣，持續學習新的技術和工具。': 'Deeply interested in software development and hardware integration, and continually learning new technologies and tools.',
             '程式設計、電腦硬體維修、電子電路設計': 'programming, computer hardware repair, and electronic circuit design',
             '鑽研 C#、C++、Python 和 PHP、SQL 與 C# Unity 遊戲設計與競程。': 'Exploring C#, C++, Python, PHP, SQL, C# Unity game design, and competitive programming.',
             '電腦硬體裝修乙級': 'Computer Hardware Repair - Level B', '數位電子乙級': 'Digital Electronics - Level B', '網頁設計丙級': 'Web Design - Level C', '工業電子丙級': 'Industrial Electronics - Level C', '電腦硬體裝修丙級': 'Computer Hardware Repair - Level C',
@@ -322,7 +324,7 @@
             'CPE 歷屆題目': 'CPE Archive', '整理歷屆 CPE 題目、解題思路與實作紀錄，持續累積自己的題庫。': 'A growing archive of CPE problems, solutions, and implementation notes.', 'APCS': 'APCS', '整理 APCS 檢定的歷屆題目、實作題與準備過程。': 'APCS past questions, implementation tasks, and preparation notes.', 'LeetCode': 'LeetCode', '記錄每日練習、演算法分類與不同解法之間的思考。': 'Daily practice, algorithm topics, and reflections on different solutions.', 'ZeroJudge': 'ZeroJudge', '收集 ZeroJudge 題目解法，整理從基礎語法到進階演算法的練習。': 'Solutions and practice records from basic syntax to advanced algorithms.',
             '電路設計': 'Circuit Design', '數位電子': 'Digital Electronics', '硬體整合': 'Hardware Integration', '從需求分析、電路規劃到實際測試，記錄電子電路的設計過程。': 'Documenting circuit design from requirements and planning to hands-on testing.', '整理邏輯閘、數位電路與控制訊號的實作練習與測量結果。': 'Digital logic, circuits, control signals, and measurement results.', '將微控制器、感測器與周邊模組整合，讓電路真正完成預期功能。': 'Integrating microcontrollers, sensors, and peripherals into working systems.',
             '網路與 Web 安全': 'Web Security', '實作與學習紀錄': 'Practice & Notes', '待新增ing....': 'Coming soon....',
-            '落墨有聲，期待思想的交鋒': 'Let ideas leave a mark. I welcome meaningful exchanges.', '無論是專案合作、技術研討交流，皆歡迎隨時聯絡。': 'For project collaboration or technical exchange, feel free to get in touch.', 'INITIATE CONTACT': 'INITIATE CONTACT'
+            '落墨有聲，期待思想的交鋒。': 'Let ideas leave a mark. I welcome meaningful exchanges.', '無論是專案合作、技術研討交流，皆歡迎隨時聯絡。': 'For project collaboration or technical exchange, feel free to get in touch.', 'INITIATE CONTACT': 'INITIATE CONTACT'
         };
 
         const languageToggle = document.querySelector('#language-toggle');
@@ -348,7 +350,7 @@
             localStorage.setItem('site-language', language);
         }
 
-        setLanguage(localStorage.getItem('site-language') || 'zh');
+        setLanguage(localStorage.getItem('site-language') || 'en');
         languageToggle.addEventListener('click', () => setLanguage(document.documentElement.lang === 'en' ? 'zh' : 'en'));
 
         document.addEventListener('click', (event) => {
