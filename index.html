@@ -26,6 +26,7 @@
             <a href="#security"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 20 6v5c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V6l8-3Zm0 5v4m0 4h.01" /></svg>資安</a>
             <a href="#contact"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 7l8 6 8-6" /></svg>聯絡</a>
         </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="切換至深色模式"></button>
         <button id="language-toggle" class="language-toggle" type="button" aria-label="切換至英文">EN</button>
     </header>
 
@@ -362,6 +363,7 @@
             link.addEventListener('animationend', () => link.classList.remove('click-pop'), { once: true });
         });
     </script>
+    <script src="src/theme.js" defer></script>
 
 </body>
 </html>

@@ -9,6 +9,21 @@
             --ink-black: #000000;     /* 濃墨純黑 */
             --ink-gray: #333333;      /* 墨灰 */
             --border-ink: #111111;    /* 墨線邊框 */
+            --surface-paper: #ffffff;
+            --muted-ink: #666666;
+            --soft-paper: #f4f4f4;
+            color-scheme: light;
+        }
+
+        :root[data-theme="dark"] {
+            --bg-paper: #171717;
+            --ink-black: #f3f0e8;
+            --ink-gray: #d0ccc2;
+            --border-ink: #e7e0d2;
+            --surface-paper: #242424;
+            --muted-ink: #aaa49a;
+            --soft-paper: #303030;
+            color-scheme: dark;
         }
 
         body {
@@ -99,6 +114,39 @@
             transform: scale(0.92);
         }
 
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 30px;
+            border: 1px solid var(--border-ink);
+            background-color: var(--bg-paper);
+            color: var(--ink-black);
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s, transform 0.2s;
+        }
+
+        .theme-toggle svg {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: currentColor;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 1.8;
+        }
+
+        .theme-toggle:hover,
+        .theme-toggle:focus-visible {
+            background-color: var(--ink-black);
+            color: var(--bg-paper);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.92);
+        }
+
         /* Hero 主視覺區塊 */
         .hero {
             padding: 10px 0 40px 0;
@@ -108,7 +156,7 @@
 
         .hero-subtitle-top {
             font-family: 'Cinzel', serif;
-            color: #555555;
+            color: var(--muted-ink);
             font-size: 0.9rem;
             letter-spacing: 0.15em;
             margin-bottom: 12px;
@@ -127,7 +175,7 @@
 
         .hero-quote {
             font-size: 1rem;
-            color: #222222;
+            color: var(--ink-gray);
             border-left: 3px solid var(--border-ink);
             padding-left: 18px;
             margin-bottom: 30px;
@@ -276,7 +324,7 @@
         .sidebar-title {
             font-family: 'Cinzel', serif;
             font-size: 0.8rem;
-            color: #555555;
+            color: var(--muted-ink);
             letter-spacing: 0.15em;
             display: block;
             margin-bottom: 12px;
@@ -302,7 +350,7 @@
         }
 
         .project-card {
-            background-color: #ffffff;
+            background-color: var(--surface-paper);
             border: 2px solid var(--border-ink);
             padding: 24px;
             box-shadow: 5px 5px 0px var(--border-ink); /* 拓印感硬陰影 */
@@ -310,7 +358,7 @@
 
         .project-num {
             font-family: 'Cinzel', serif;
-            color: #666666;
+            color: var(--muted-ink);
             font-size: 0.8rem;
             margin-bottom: 8px;
             display: block;
@@ -345,7 +393,7 @@
 
         .project-link:hover,
         .project-link:focus-visible {
-            color: #555555;
+            color: var(--muted-ink);
             transform: translateX(5px);
         }
 
@@ -386,7 +434,7 @@
             display: flex;
             justify-content: space-between;
             gap: 20px;
-            color: #666666;
+            color: var(--muted-ink);
             font-family: 'Cinzel', serif;
             font-size: 0.78rem;
             letter-spacing: 0.1em;
@@ -403,7 +451,7 @@
         .photo-placeholder {
             margin: 0;
             border: 2px solid var(--border-ink);
-            background-color: #ffffff;
+            background-color: var(--surface-paper);
         }
 
         .photo-frame-large {
@@ -429,7 +477,7 @@
 
         .photo-frame figcaption span,
         .photo-placeholder span {
-            color: #666666;
+            color: var(--muted-ink);
             font-family: 'Cinzel', serif;
             font-size: 0.72rem;
             letter-spacing: 0.1em;
@@ -441,7 +489,7 @@
             justify-content: space-between;
             min-height: 170px;
             padding: 14px;
-            background: repeating-linear-gradient(-45deg, #ffffff, #ffffff 8px, #f4f4f4 8px, #f4f4f4 9px);
+            background: repeating-linear-gradient(-45deg, var(--surface-paper), var(--surface-paper) 8px, var(--soft-paper) 8px, var(--soft-paper) 9px);
         }
 
         .photo-placeholder strong {
@@ -491,7 +539,7 @@
             display: flex;
             justify-content: space-between;
             gap: 20px;
-            color: #666666;
+            color: var(--muted-ink);
             font-family: 'Cinzel', serif;
             font-size: 0.78rem;
             letter-spacing: 0.1em;
@@ -561,7 +609,7 @@
             display: flex;
             justify-content: space-between;
             gap: 20px;
-            color: #666666;
+            color: var(--muted-ink);
             font-family: 'Cinzel', serif;
             font-size: 0.78rem;
             letter-spacing: 0.1em;
@@ -570,7 +618,7 @@
         .problem-box,
         .io-box {
             border: 2px solid var(--border-ink);
-            background-color: #ffffff;
+            background-color: var(--surface-paper);
             padding: 22px;
         }
 
@@ -580,7 +628,7 @@
 
         .problem-label {
             display: block;
-            color: #666666;
+            color: var(--muted-ink);
             font-family: 'Cinzel', serif;
             font-size: 0.75rem;
             letter-spacing: 0.1em;
@@ -615,12 +663,12 @@
             display: grid;
             grid-template-columns: 42px 1fr;
             gap: 14px;
-            border-bottom: 1px solid #bbbbbb;
+            border-bottom: 1px solid var(--muted-ink);
             padding-bottom: 16px;
         }
 
         .step-number {
-            color: #666666;
+            color: var(--muted-ink);
             font-family: 'Cinzel', serif;
             font-size: 0.85rem;
         }
@@ -647,8 +695,8 @@
             display: flex;
             justify-content: space-between;
             padding: 10px 16px;
-            border-bottom: 1px solid #555555;
-            color: #cccccc;
+            border-bottom: 1px solid var(--muted-ink);
+            color: var(--ink-gray);
             font-family: 'Cinzel', serif;
             font-size: 0.75rem;
             letter-spacing: 0.08em;
@@ -682,7 +730,7 @@
             gap: 16px;
             min-height: 58px;
             padding: 10px 8px;
-            border-bottom: 1px solid #bbbbbb;
+            border-bottom: 1px solid var(--muted-ink);
             color: var(--ink-gray);
             font-size: 0.9rem;
         }
@@ -694,14 +742,14 @@
 
         .directory-heading {
             min-height: 42px;
-            color: #666666;
+            color: var(--muted-ink);
             font-family: 'Cinzel', serif;
             font-size: 0.72rem;
             letter-spacing: 0.1em;
         }
 
         .directory-status {
-            color: #777777;
+            color: var(--muted-ink);
             font-family: 'Cinzel', serif;
             font-size: 0.7rem;
             letter-spacing: 0.06em;
@@ -710,7 +758,7 @@
         /* 聯絡資訊 Contact */
         .contact-box {
             border: 2px solid var(--border-ink);
-            background-color: #ffffff;
+            background-color: var(--surface-paper);
             padding: 35px 20px;
             text-align: center;
             box-shadow: 6px 6px 0px var(--border-ink);
