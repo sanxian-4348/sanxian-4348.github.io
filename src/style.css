@@ -5,17 +5,6 @@
         }
 
         :root {
-            --bg-paper: #fcfcfc;      /* 宣紙微暖白 */
-            --ink-black: #000000;     /* 濃墨純黑 */
-            --ink-gray: #333333;      /* 墨灰 */
-            --border-ink: #111111;    /* 墨線邊框 */
-            --surface-paper: #ffffff;
-            --muted-ink: #666666;
-            --soft-paper: #f4f4f4;
-            color-scheme: light;
-        }
-
-        :root[data-theme="dark"] {
             --bg-paper: #171717;
             --ink-black: #f3f0e8;
             --ink-gray: #d0ccc2;
@@ -24,6 +13,17 @@
             --muted-ink: #aaa49a;
             --soft-paper: #303030;
             color-scheme: dark;
+        }
+
+        :root[data-theme="light"] {
+            --bg-paper: #fcfcfc;
+            --ink-black: #000000;
+            --ink-gray: #333333;
+            --border-ink: #111111;
+            --surface-paper: #ffffff;
+            --muted-ink: #666666;
+            --soft-paper: #f4f4f4;
+            color-scheme: light;
         }
 
         body {

@@ -2,7 +2,6 @@
     const themeToggle = document.querySelector('#theme-toggle');
     const root = document.documentElement;
     const savedTheme = localStorage.getItem('site-theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     function updateTheme(theme) {
         const isDark = theme === 'dark';
@@ -17,7 +16,7 @@
         themeToggle.setAttribute('title', isDark ? '切換至淺色模式' : '切換至深色模式');
     }
 
-    updateTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+    updateTheme(savedTheme || 'dark');
     themeToggle?.addEventListener('click', function () {
         updateTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
     });
