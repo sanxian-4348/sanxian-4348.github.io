@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>APCS 201603-1 成績指標 - Sanxian</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Noto+Serif+TC:wght@400;600;900&display=swap" rel="stylesheet">
+	<link rel="icon" type="image/svg+xml" href="../../../images/favicon.svg">
+	<link rel="stylesheet" href="../../../src/style.css">
+</head>
+<body class="coding-page">
+
+	<header>
+		<div class="logo">Sanxian — APCS Archive</div>
+		<nav>
+			<a href="a001.html">返回 APCS 目錄</a>
+			<a href="../../../index.html#contact">聯絡</a>
+		</nav>
+		<button id="theme-toggle" class="theme-toggle" type="button" aria-label="切換至深色模式"></button>
+	</header>
+
+	<main>
+		<section class="coding-hero">
+			<span class="hero-subtitle-top">APCS 201603 / BASIC IMPLEMENTATION</span>
+			<h1>成績指標</h1>
+			<div class="hero-quote">
+				排序成績後，找出最高不及格分數與最低及格分數。
+			</div>
+			<div class="problem-meta">
+				<span>PROBLEM / B964</span>
+				<span>LANGUAGE / C++</span>
+			</div>
+		</section>
+
+		<section>
+			<div class="section-header">
+				<h2 class="section-title">01 / 題目理解</h2>
+				<div class="section-divider"></div>
+			</div>
+			<div class="problem-box">
+				<span class="problem-label">DESCRIPTION</span>
+				<h3>找出班級中的成績指標</h3>
+				<p>及格分數為 60 分。請將所有成績由小到大排序，再找出不及格學生中的最高分，以及及格學生中的最低分。</p>
+			</div>
+			<div class="io-grid">
+				<div class="io-box">
+					<span class="problem-label">INPUT</span>
+					<p>第一行輸入學生人數，第二行輸入每位學生的成績，分數介於 0 到 100。</p>
+				</div>
+				<div class="io-box">
+					<span class="problem-label">OUTPUT</span>
+					<p>輸出排序後的成績、最高不及格分數，以及最低及格分數。若不存在對應分數，分別輸出 best case 或 worst case。</p>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="section-header">
+				<h2 class="section-title">02 / 解題思路</h2>
+				<div class="section-divider"></div>
+			</div>
+			<div class="solution-steps">
+				<div>
+					<span class="step-number">01</span>
+					<div><h3>排序</h3><p>使用 <code>sort</code> 將成績由小到大排列，方便分界與輸出。</p></div>
+				</div>
+				<div>
+					<span class="step-number">02</span>
+					<div><h3>尋找及格分界</h3><p><code>lower_bound</code> 找到第一個大於或等於 60 的位置；它的前一格就是最高不及格分數。</p></div>
+				</div>
+				<div>
+					<span class="step-number">03</span>
+					<div><h3>處理兩種極端情況</h3><p>分界位置在開頭代表全數及格，輸出 best case；分界位置在結尾代表全數不及格，輸出 worst case。</p></div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="section-header">
+				<h2 class="section-title">03 / C++ 實作</h2>
+				<div class="section-divider"></div>
+			</div>
+			<div class="code-panel">
+				<div class="code-panel-header"><span>SOLUTION / B964.CPP</span><span>STL</span></div>
+				<pre><code>#include &lt;algorithm&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int main() {
+    int student;
+    cin &gt;&gt; student;
+
+    vector&lt;int&gt; scores(student);
+    for (int i = 0; i &lt; student; i++) {
+        cin &gt;&gt; scores[i];
+    }
+
+    sort(scores.begin(), scores.end());
+
+    for (int i = 0; i &lt; student; i++) {
+        if (i &gt; 0) {
+            cout &lt;&lt; ' ';
+        }
+        cout &lt;&lt; scores[i];
+    }
+    cout &lt;&lt; '\n';
+
+    auto firstPass = lower_bound(scores.begin(), scores.end(), 60);
+
+    if (firstPass == scores.begin()) {
+        cout &lt;&lt; "best case\n";
+    } else {
+        cout &lt;&lt; *(firstPass - 1) &lt;&lt; '\n';
+    }
+
+    if (firstPass == scores.end()) {
+        cout &lt;&lt; "worst case\n";
+    } else {
+        cout &lt;&lt; *firstPass &lt;&lt; '\n';
+    }
+}</code></pre>
+			</div>
+		</section>
+
+		<div class="problem-tags">
+			<span class="tag-item">APCS</span>
+			<span class="tag-item">SORTING</span>
+			<span class="tag-item">BINARY SEARCH</span>
+			<span class="tag-item">C++</span>
+		</div>
+
+		<div class="world-back">
+			<a href="a001.html" class="btn-outline">← 返回 APCS 目錄</a>
+		</div>
+	</main>
+
+	<footer>
+		&copy; 2026 SANXIAN. MONOCHROME INK &amp; CODE ARCHITECTURE.
+	</footer>
+	<script src="../../../src/theme.js" defer></script>
+
+</body>
+</html>
