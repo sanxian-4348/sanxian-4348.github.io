@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TOI 初選 202512-b1 串燒 - Sanxian</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Noto+Serif+TC:wght@400;600;900&display=swap" rel="stylesheet">
+	<link rel="icon" type="image/svg+xml" href="../../../images/favicon.svg">
+	<link rel="stylesheet" href="../../../src/style.css">
+</head>
+<body class="coding-page">
+
+	<header>
+		<div class="logo">Sanxian — APCS Archive</div>
+		<nav>
+			<a href="a001.html">返回 APCS 目錄</a>
+			<a href="../../../index.html#contact">聯絡</a>
+		</nav>
+		<button id="theme-toggle" class="theme-toggle" type="button" aria-label="切換至深色模式"></button>
+	</header>
+
+	<main>
+		<section class="coding-hero">
+			<span class="hero-subtitle-top">TOI 202512 / BASIC IMPLEMENTATION</span>
+			<h1>串燒</h1>
+			<div class="hero-quote">
+				統計每種串燒的訂購量與送餐量，確認漏上與多上的數量。
+			</div>
+			<div class="problem-meta">
+				<span>PROBLEM / 202512-B1</span>
+				<span>LANGUAGE / C++</span>
+			</div>
+		</section>
+
+		<section>
+			<div class="section-header">
+				<h2 class="section-title">01 / 題目理解</h2>
+				<div class="section-divider"></div>
+			</div>
+			<div class="problem-box">
+				<span class="problem-label">DESCRIPTION</span>
+				<h3>確認串燒是否漏上或多上</h3>
+				<p>共有 M 個人到串燒店用餐，每個人各自點了一些串燒，但送餐後所有串燒混在一起。請根據大家的訂單，計算店家漏上了幾個，以及多送了幾個。</p>
+			</div>
+			<div class="io-grid">
+				<div class="io-box">
+					<span class="problem-label">INPUT</span>
+					<p>第一行輸入送上的串燒數量 N 與人數 M。第二行輸入 N 個送上的品項編號。接下來 M 行，每行先輸入該客人的訂購數量，再輸入各品項編號。</p>
+				</div>
+				<div class="io-box">
+					<span class="problem-label">OUTPUT</span>
+					<p>輸出兩個整數，依序表示漏上的串燒數量與多上的串燒數量。</p>
+				</div>
+			</div>
+			<div class="problem-box">
+				<span class="problem-label">CONSTRAINTS</span>
+				<p>1 &le; N &le; 10000、1 &le; M &le; 10。每個品項編號介於 1 到 100 之間，每位客人訂購 1 到 100 個串燒。</p>
+			</div>
+		</section>
+
+		<section>
+			<div class="section-header">
+				<h2 class="section-title">02 / 解題思路</h2>
+				<div class="section-divider"></div>
+			</div>
+			<div class="solution-steps">
+				<div>
+					<span class="step-number">01</span>
+					<div><h3>統計送餐數量</h3><p>使用 <code>delivered</code> 陣列，依品項編號記錄店家實際送上的數量。</p></div>
+				</div>
+				<div>
+					<span class="step-number">02</span>
+					<div><h3>統計訂購數量</h3><p>讀取每位客人的明細，將相同品項的數量累加到 <code>ordered</code> 陣列。</p></div>
+				</div>
+				<div>
+					<span class="step-number">03</span>
+					<div><h3>比較每個品項</h3><p>若訂購量大於送餐量，差值就是漏上的數量；反之，差值就是多上的數量。最後將所有品項的差值分別加總。</p></div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="section-header">
+				<h2 class="section-title">03 / 範例分析</h2>
+				<div class="section-divider"></div>
+			</div>
+			<div class="problem-box">
+				<span class="problem-label">EXAMPLE 1</span>
+				<p>送上 5 個品項 1、4 個品項 2 和 1 個品項 4；實際訂購 4 個品項 1、4 個品項 2 和 2 個品項 3。因此品項 3 漏了 2 個，品項 1 與品項 4 各多了 1 個，答案為 <code>2 2</code>。</p>
+			</div>
+		</section>
+
+		<section>
+			<div class="section-header">
+				<h2 class="section-title">04 / C++ 實作</h2>
+				<div class="section-divider"></div>
+			</div>
+			<div class="code-panel">
+				<div class="code-panel-header"><span>SOLUTION / P918.CPP</span><span>COUNTING</span></div>
+				<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int n, m;
+    int delivered[101] = {}, ordered[101] = {};
+
+    cin &gt;&gt; n &gt;&gt; m;
+
+    for (int i = 0; i &lt; n; ++i) {
+        int item;
+        cin &gt;&gt; item;
+        ++delivered[item];
+    }
+
+    for (int person = 0; person &lt; m; ++person) {
+        int quantity;
+        cin &gt;&gt; quantity;
+
+        for (int i = 0; i &lt; quantity; ++i) {
+            int item;
+            cin &gt;&gt; item;
+            ++ordered[item];
+        }
+    }
+
+    int missing = 0;
+    int extra = 0;
+
+    for (int item = 1; item &lt;= 100; ++item) {
+        if (ordered[item] &gt; delivered[item]) {
+            missing += ordered[item] - delivered[item];
+        } else {
+            extra += delivered[item] - ordered[item];
+        }
+    }
+
+    cout &lt;&lt; missing &lt;&lt; ' ' &lt;&lt; extra &lt;&lt; '\n';
+    return 0;
+}</code></pre>
+			</div>
+		</section>
+
+		<section>
+			<div class="section-header">
+				<h2 class="section-title">05 / 複雜度分析</h2>
+				<div class="section-divider"></div>
+			</div>
+			<div class="problem-box">
+				<p>讀取所有資料需要 O(N + \sum P_j)，最後只需檢查 100 種品項，因此總時間複雜度為 O(N + \sum P_j + 100)。兩個陣列的大小固定為 101，空間複雜度為 O(100)。</p>
+			</div>
+		</section>
+
+		<div class="problem-tags">
+			<span class="tag-item">TOI</span>
+			<span class="tag-item">COUNTING</span>
+			<span class="tag-item">IMPLEMENTATION</span>
+			<span class="tag-item">C++</span>
+		</div>
+
+		<div class="world-back">
+			<a href="a001.html" class="btn-outline">← 返回 APCS 目錄</a>
+		</div>
+	</main>
+
+	<footer>
+		&copy; 2026 SANXIAN. MONOCHROME INK &amp; CODE ARCHITECTURE.
+	</footer>
+	<script src="../../../src/theme.js" defer></script>
+
+</body>
+</html>
